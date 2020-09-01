@@ -1,0 +1,53 @@
+{
+    "train_config": {
+        "output_directory": "exp/jingming/models_world/e2e-gan-svc-train-3d4-adv",
+        "epochs": 100000,
+        "g_learning_rate": 1e-4,
+        "d_learning_rate": 5e-4,
+        "stage": 1,
+        "lamda_adv": 4.0,
+        "lamda_feat": 40,
+        "warmup_steps": 200000,
+        "decay_learning_rate": 0.5,
+        "iters_per_checkpoint": 5000,
+        "batch_size": 32,
+        "seed": 1234,
+        "checkpoint_path": "exp/jingming/models_world/e2e-gan-svc-train-3d4/model_800000"
+    },
+
+    "data_config": {
+        "file_list": "exp/jingming/corpus/train.list",
+        "ppg_dir": "exp/jingming/corpus/ppgs",
+        "f0_dir": "exp/jingming/corpus/f0_world",
+        "audio_dir": "exp/jingming/corpus/wavs",
+        "sp_dir": "exp/jingming/corpus/mels",
+        "se_files": "exp/jingming/corpus/utt_emb_sing3.ark",
+        "feat_used": "pfs",
+        "pitch_norm": 100,
+        "segment_length": 24000,
+        "mu_quantization": 256,
+        "filter_length": 1200,
+        "hop_length": 240,
+        "win_length": 1200,
+        "sampling_rate": 24000
+    },
+
+    "dist_config": {
+        "dist_backend": "nccl",
+        "dist_url": "tcp://localhost:54321"
+    },
+
+    "encoder_config": {
+        "n_in_channels": [218, 1, 128],
+        "n_out_channels": [64, 64, 64],
+        "n_hidden_channels": [128, 128, 128],
+        "embedding_size": 64
+    },
+    
+    "discriminator_config": {
+        "multiscales": [2, 2, 2],
+        "downsample_scales": [4, 4, 4, 4],
+        "max_channels": 512
+    }
+
+}

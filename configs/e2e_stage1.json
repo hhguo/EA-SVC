@@ -1,0 +1,42 @@
+{
+    "train_config": {
+        "output_directory": "exp/jingming/models/stage1",
+        "epochs": 100000,
+        "g_learning_rate": 1e-3,
+        "d_learning_rate": 1e-3,
+        "stage": 0,
+        "lamda_adv": 4,
+        "lamda_feat": 40,
+        "warmup_steps": 50000,
+        "decay_learning_rate": 0.5,
+        "iters_per_checkpoint": 5000,
+        "batch_size": 32,
+        "seed": 1234,
+        "checkpoint_path": ""
+    },
+
+    "data_config": {
+        "file_list": "exp/jingming/corpus/train.list",
+        "ppg_dir": "exp/jingming/corpus/ppgs",
+        "f0_dir": "exp/jingming/corpus/f0s",
+        "audio_dir": "exp/jingming/corpus/wavs",
+        "se_files": "exp/jingming/corpus/utt_emb_sing3.ark",
+        "pitch_norm": 100,
+        "hop_length": 240,
+        "segment_length": 24000,
+        "sampling_rate": 24000
+    },
+    
+    "dist_config": {
+        "dist_backend": "nccl",
+        "dist_url": "tcp://localhost:54321"
+    },
+
+    "encoder_config": {
+        "n_in_channels": [218, 1, 128],
+        "n_out_channels": [64, 64, 64],
+        "n_hidden_channels": [128, 128, 128],
+        "embedding_size": 64
+    }
+    
+}
