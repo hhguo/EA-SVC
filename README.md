@@ -1,6 +1,5 @@
 # EA-SVC
 An implement of "Phonetic Posteriorgrams based Many-to-Many Singing Voice Conversion via Adversarial Training"
-> Undone......
 
 ## Data prepare
 1. PPG features (10ms frameshift)
